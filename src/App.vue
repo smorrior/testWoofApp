@@ -15,7 +15,7 @@
 
     <v-app-bar app clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title class="font-weight-bold display-1">woof<v-icon>mdi-paw</v-icon></v-toolbar-title>
+      <v-toolbar-title class="font-weight-bold display-1">woof TEEEEST<v-icon>mdi-paw</v-icon></v-toolbar-title>
     </v-app-bar>
     <router-view>
     </router-view>
