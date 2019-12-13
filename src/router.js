@@ -21,7 +21,7 @@ const routes = [
         component: Meetup
     },
     {
-        path:'/meetup/new',
+        path:'/organize-meetup',
         name:'CreateMeetup',
         component: CreateMeetup
     },
