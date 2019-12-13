@@ -14,7 +14,6 @@ export const store = new Vuex.Store({
                 size: 'Up to 2 people',
                 price: 'From $35/person',
                 includes:'Equipment',
-                rating: "4,8",
                 info: "We'll meet at Austin's animal shelter and begin with an inspiring introduction to the city's no-kill movement and policies that result in the saving of over 95% of the animals that come through Austin's shelter (the largest shelter in the US to achieve these results)! I'll lead our group on a tour of our impressive shelter, demonstrating how the whole city comes together to save lives.  Each guest will be able to walk about 3 shelter dogs and give the dogs some much needed love and exercise. We will take photos that will highlight the dog's adoptability and raise awareness. Know that 100% of your payment for this experience will be donated back to the shelter, providing funds for the care of the very dogs we will meet on your visit!",
                 thumbnail:'https://a0.muscache.com/im/pictures/lombard/MtTemplate-1094333-media_library/original/ffa99fc1-ad51-4481-b198-745f39feb46f.jpeg?aki_policy=exp_md',
                 images: [
@@ -32,7 +31,6 @@ export const store = new Vuex.Store({
                 size: 'Up to 6 people',
                 price: 'From $55/person',
                 includes:'Equipment, Drinks',
-                rating: "4,9",
                 info: "Mr. Beaches and I will guide you on a one hour leisurely tour of the world-famous Las Olas canals. Our tours focus on the beauty surrounding us, and not your paddleboarding technique. So, feel free to stand, kneel or sit - as long as you enjoy yourself.",
                 thumbnail:'https://a0.muscache.com/im/pictures/00ca6ed0-2d07-466e-8a15-c0414cad7f48.jpg?aki_policy=exp_md',
                 images: [
@@ -50,7 +48,6 @@ export const store = new Vuex.Store({
                 size: 'Up to 8 people',
                 price: 'From $15/person',
                 includes:'Equipment',
-                rating: "4,8",
                 info: "We will have a two-hours walk in the woods with my dog pack, composed by adorable Parisian doggies (10 dogs, more or less). They are very friendly, and will easily get you to smile. Being with them in this beautiful, natural area is really peaceful and joyful, which is very much appreciated in a crowded city like Paris. ",
                 thumbnail:'https://a0.muscache.com/im/pictures/6db9918e-6261-4769-bb35-ccf129836775.jpg?aki_policy=exp_md',
                 images: [
@@ -68,7 +65,6 @@ export const store = new Vuex.Store({
                 size: 'Up to 2 people',
                 price: 'From $35/person',
                 includes:'Equipment',
-                rating: "4,8",
                 info: "We'll meet at Austin's animal shelter and begin with an inspiring introduction to the city's no-kill movement and policies that result in the saving of over 95% of the animals that come through Austin's shelter (the largest shelter in the US to achieve these results)! I'll lead our group on a tour of our impressive shelter, demonstrating how the whole city comes together to save lives.  Each guest will be able to walk about 3 shelter dogs and give the dogs some much needed love and exercise. We will take photos that will highlight the dog's adoptability and raise awareness. Know that 100% of your payment for this experience will be donated back to the shelter, providing funds for the care of the very dogs we will meet on your visit!",
                 thumbnail:'https://a0.muscache.com/im/pictures/lombard/MtTemplate-1094333-media_library/original/ffa99fc1-ad51-4481-b198-745f39feb46f.jpeg?aki_policy=exp_md',
                 images: [
@@ -86,7 +82,6 @@ export const store = new Vuex.Store({
                 size: 'Up to 2 people',
                 price: 'From $35/person',
                 includes:'Equipment',
-                rating: "4,8",
                 info: "We'll meet at Austin's animal shelter and begin with an inspiring introduction to the city's no-kill movement and policies that result in the saving of over 95% of the animals that come through Austin's shelter (the largest shelter in the US to achieve these results)! I'll lead our group on a tour of our impressive shelter, demonstrating how the whole city comes together to save lives.  Each guest will be able to walk about 3 shelter dogs and give the dogs some much needed love and exercise. We will take photos that will highlight the dog's adoptability and raise awareness. Know that 100% of your payment for this experience will be donated back to the shelter, providing funds for the care of the very dogs we will meet on your visit!",
                 thumbnail:'https://a0.muscache.com/im/pictures/lombard/MtTemplate-1094333-media_library/original/ffa99fc1-ad51-4481-b198-745f39feb46f.jpeg?aki_policy=exp_md',
                 images: [
@@ -104,7 +99,6 @@ export const store = new Vuex.Store({
                 size: 'Up to 2 people',
                 price: 'From $35/person',
                 includes:'Equipment',
-                rating: "4,8",
                 info: "We'll meet at Austin's animal shelter and begin with an inspiring introduction to the city's no-kill movement and policies that result in the saving of over 95% of the animals that come through Austin's shelter (the largest shelter in the US to achieve these results)! I'll lead our group on a tour of our impressive shelter, demonstrating how the whole city comes together to save lives.  Each guest will be able to walk about 3 shelter dogs and give the dogs some much needed love and exercise. We will take photos that will highlight the dog's adoptability and raise awareness. Know that 100% of your payment for this experience will be donated back to the shelter, providing funds for the care of the very dogs we will meet on your visit!",
                 thumbnail:'https://a0.muscache.com/im/pictures/lombard/MtTemplate-1094333-media_library/original/ffa99fc1-ad51-4481-b198-745f39feb46f.jpeg?aki_policy=exp_md',
                 images: [
@@ -122,7 +116,6 @@ export const store = new Vuex.Store({
                 size: 'Up to 2 people',
                 price: 'From $35/person',
                 includes:'Equipment',
-                rating: "4,8",
                 info: "We'll meet at Austin's animal shelter and begin with an inspiring introduction to the city's no-kill movement and policies that result in the saving of over 95% of the animals that come through Austin's shelter (the largest shelter in the US to achieve these results)! I'll lead our group on a tour of our impressive shelter, demonstrating how the whole city comes together to save lives.  Each guest will be able to walk about 3 shelter dogs and give the dogs some much needed love and exercise. We will take photos that will highlight the dog's adoptability and raise awareness. Know that 100% of your payment for this experience will be donated back to the shelter, providing funds for the care of the very dogs we will meet on your visit!",
                 thumbnail:'https://a0.muscache.com/im/pictures/lombard/MtTemplate-1094333-media_library/original/ffa99fc1-ad51-4481-b198-745f39feb46f.jpeg?aki_policy=exp_md',
                 images: [
@@ -138,9 +131,8 @@ export const store = new Vuex.Store({
                 location: 'Berlin, Germany',
                 duration: '2.5 hours',
                 size: 'Up to 2 people',
-                price: 'From $35/person',
+                price: '24',
                 includes:'Equipment',
-                rating: "4,8",
                 info: "We'll meet at Austin's animal shelter and begin with an inspiring introduction to the city's no-kill movement and policies that result in the saving of over 95% of the animals that come through Austin's shelter (the largest shelter in the US to achieve these results)! I'll lead our group on a tour of our impressive shelter, demonstrating how the whole city comes together to save lives.  Each guest will be able to walk about 3 shelter dogs and give the dogs some much needed love and exercise. We will take photos that will highlight the dog's adoptability and raise awareness. Know that 100% of your payment for this experience will be donated back to the shelter, providing funds for the care of the very dogs we will meet on your visit!",
                 thumbnail:'https://a0.muscache.com/im/pictures/lombard/MtTemplate-1094333-media_library/original/ffa99fc1-ad51-4481-b198-745f39feb46f.jpeg?aki_policy=exp_md',
                 images: [
@@ -156,9 +148,8 @@ export const store = new Vuex.Store({
                 location: 'Berlin, Germany',
                 duration: '2.5 hours',
                 size: 'Up to 2 people',
-                price: 'From $35/person',
+                price: '35',
                 includes:'Equipment',
-                rating: "4,8",
                 info: "We'll meet at Austin's animal shelter and begin with an inspiring introduction to the city's no-kill movement and policies that result in the saving of over 95% of the animals that come through Austin's shelter (the largest shelter in the US to achieve these results)! I'll lead our group on a tour of our impressive shelter, demonstrating how the whole city comes together to save lives.  Each guest will be able to walk about 3 shelter dogs and give the dogs some much needed love and exercise. We will take photos that will highlight the dog's adoptability and raise awareness. Know that 100% of your payment for this experience will be donated back to the shelter, providing funds for the care of the very dogs we will meet on your visit!",
                 thumbnail:'https://a0.muscache.com/im/pictures/lombard/MtTemplate-1094333-media_library/original/ffa99fc1-ad51-4481-b198-745f39feb46f.jpeg?aki_policy=exp_md',
                 images: [
@@ -174,9 +165,8 @@ export const store = new Vuex.Store({
                 location: 'Berlin, Germany',
                 duration: '2.5 hours',
                 size: 'Up to 2 people',
-                price: 'From $35/person',
+                price: '25',
                 includes:'Equipment',
-                rating: "4,8",
                 info: "We'll meet at Austin's animal shelter and begin with an inspiring introduction to the city's no-kill movement and policies that result in the saving of over 95% of the animals that come through Austin's shelter (the largest shelter in the US to achieve these results)! I'll lead our group on a tour of our impressive shelter, demonstrating how the whole city comes together to save lives.  Each guest will be able to walk about 3 shelter dogs and give the dogs some much needed love and exercise. We will take photos that will highlight the dog's adoptability and raise awareness. Know that 100% of your payment for this experience will be donated back to the shelter, providing funds for the care of the very dogs we will meet on your visit!",
                 thumbnail:'https://a0.muscache.com/im/pictures/lombard/MtTemplate-1094333-media_library/original/ffa99fc1-ad51-4481-b198-745f39feb46f.jpeg?aki_policy=exp_md',
                 images: [
@@ -192,8 +182,29 @@ export const store = new Vuex.Store({
         registerMeetuos: ['1']
     }
     },
-    mutations: {},
-    actions: {},
+    mutations: {
+        createMeetup (state, payload) {
+            state.loadedMeetups.push(payload)
+        }
+    },
+    actions: {
+        createMeetup ({commit}, payload){
+            const meetup = {
+                title: payload.title,
+                location:payload.location,
+                duration:payload.duration,
+                size:payload.size,
+                price:payload.price,
+                includes:payload.includes,
+                info:payload.info,
+                thumbnail:payload.thumbnail,
+                images:payload.images,
+                id:"asd"
+            }
+            //pristup FB and storovanje
+            commit('createMeetup', meetup)
+        } 
+    },
     getters: {
         loadedMeetups (state) {
             return state.loadedMeetups.sort((meetupA, meetupB) => {

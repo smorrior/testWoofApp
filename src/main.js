@@ -4,9 +4,17 @@ import App from './App.vue'
 import routes from './router'
 import firebase from 'firebase';
 import vuetify from './plugins/vuetify';
-import {store} from './store'
+import {store} from './store';
+import { ValidationProvider, extend } from 'vee-validate';
+import { required } from 'vee-validate/dist/rules';
+
 
 Vue.config.productionTip = false
+
+extend('required', {
+  ...required,
+  message: 'This field is required'
+});
 
 const firebaseConfig = {
   apiKey: "AIzaSyDB_k-BPTI6A6XHdOnXljT_urkIiym9ofw",
@@ -25,6 +33,8 @@ var router = new VueRouter({
 })
 
 Vue.use(VueRouter)
+
+Vue.component('ValidationProvider', ValidationProvider);
 
 new Vue({
   router: router,
