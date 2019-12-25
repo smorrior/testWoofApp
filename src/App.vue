@@ -29,14 +29,28 @@
     },
     data: () => ({
       drawer: null,
-      itemsInMenu: [
-        { icon: 'mdi-calendar-search', title: 'View Meetups', link: '/'},
-        { icon: 'mdi-calendar-edit', title: 'Organize Meetup', link: '/organize-meetup'},
-        { icon: 'mdi-account-box-outline', title: 'Profile', link: '/profile'},
-        { icon: 'mdi-account-plus-outline', title: 'Sign Up', link: '/sign-up'},
-        { icon: 'mdi-login-variant', title: 'Sign In', link: '/sign-in'},
-      ]
     }),
+    computed: {
+      itemsInMenu () {
+        let itemsInMenu = [
+          
+          { icon: 'mdi-calendar-search', title: 'View Meetups', link: '/'},
+          { icon: 'mdi-account-plus-outline', title: 'Sign Up', link: '/sign-up'},
+          { icon: 'mdi-login-variant', title: 'Sign In', link: '/sign-in'},
+        ]
+        if (this.userIsAuthenticated) {
+          itemsInMenu = [
+            { icon: 'mdi-calendar-search', title: 'View Meetups', link: '/'},
+            { icon: 'mdi-calendar-edit', title: 'Organize Meetup', link: '/organize-meetup'},
+            { icon: 'mdi-account-box-outline', title: 'Profile', link: '/profile'},
+          ]
+        }
+        return itemsInMenu
+      },
+      userIsAuthenticated () {
+        return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+      }
+    }
   }
 </script>
 <style>
