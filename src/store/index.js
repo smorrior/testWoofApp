@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import * as firebase from 'firebase'
 
 Vue.use(Vuex)
 
@@ -177,14 +178,25 @@ export const store = new Vuex.Store({
                 ] 
             },
         ],
-    user: {
-        id:'123',
-        registerMeetuos: ['1']
-    }
+    user: null,
+    loading: false,
+    error: null,
     },
     mutations: {
         createMeetup (state, payload) {
             state.loadedMeetups.push(payload)
+        },
+        setUser (state, payload){
+            state.user = payload
+        },
+        setLoading (state, payload) {
+            state.loading = payload
+        },
+        setError (state, payload) {
+            state.error = payload
+        },
+        clearError (state) {
+            state.error = null
         }
     },
     actions: {
@@ -203,7 +215,56 @@ export const store = new Vuex.Store({
             }
             //pristup FB and storovanje
             commit('createMeetup', meetup)
-        } 
+        },
+        signUpUser ({commit}, payload) {
+            commit('setLoading', true)
+            commit('setError')
+            firebase.auth().createUserWithEmailAndPassword(payload.email, payload.password)
+            .then(
+                user=> {
+                    commit('setLoading', false)
+                    const newUser = {
+                        id: user.uid,
+                        registerMeetups: []
+                    }
+                    commit('setUser', newUser)
+                }
+            )
+            .catch(
+                error => {
+                    commit('setLoading', false)
+                    commit('setError', error)
+                    // eslint-disable-next-line no-console
+                    console.log(error)
+                }
+            )
+        },
+        signInUser ({commit}, payload) {
+            commit('setLoading', true)
+            commit('setError')
+            firebase.auth().signInWithEmailAndPassword(payload.email, payload.password)
+                .then(
+                    user => {
+                        commit('setLoading', false)
+                        const newUser  = {
+                            id: user.uid,
+                            registerMeetups: []
+                        }
+                        commit('setUser', newUser)
+                    }
+                )
+                .catch(
+                    error => {
+                        commit('setLoading', false)
+                        commit('setError', error)
+                         // eslint-disable-next-line no-console
+                        console.log(error)
+                    }
+                )
+        },
+        clearError ({commit}) {
+            commit('clearError')
+        }
     },
     getters: {
         loadedMeetups (state) {
@@ -217,6 +278,16 @@ export const store = new Vuex.Store({
                     return meetup.id === meetupId
                 })
             }
+        },
+        user (state) {
+            return state.user 
+        },
+        loading (state) {
+            return state.loading 
+        },
+        error (state) {
+            return state.error
         }
+
     }
 })

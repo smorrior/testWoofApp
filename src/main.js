@@ -5,25 +5,19 @@ import routes from './router'
 import firebase from 'firebase';
 import vuetify from './plugins/vuetify';
 import {store} from './store';
-import { ValidationProvider, extend } from 'vee-validate';
-import { required } from 'vee-validate/dist/rules';
-
+import AlertComponent from './components/Shared/Alert.vue'
 
 Vue.config.productionTip = false
-
-extend('required', {
-  ...required,
-  message: 'This field is required'
-});
+Vue.component('app-alert', AlertComponent)
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDB_k-BPTI6A6XHdOnXljT_urkIiym9ofw",
-  authDomain: "vue-app-fcf9f.firebaseapp.com",
-  databaseURL: "https://vue-app-fcf9f.firebaseio.com",
-  projectId: "vue-app-fcf9f",
-  storageBucket: "vue-app-fcf9f.appspot.com",
-  messagingSenderId: "479921669419",
-  appId: "1:479921669419:web:bd02a70cf09509d799716e"
+  apiKey: 'AIzaSyDNr2ZU6ZI9OZFitzqetkc8OQ_4xQjcYZI',
+  authDomain: 'woofapp-6d448.firebaseapp.com',
+  databaseURL: 'https://woofapp-6d448.firebaseio.com',
+  projectId: 'woofapp-6d448',
+  storageBucket: 'woofapp-6d448.appspot.com',
+  messagingSenderId: '633794703442',
+  appId: '1:633794703442:web:7f3adde4e0f33dde0c6f8b'
 };
 firebase.initializeApp(firebaseConfig)
 
@@ -33,8 +27,6 @@ var router = new VueRouter({
 })
 
 Vue.use(VueRouter)
-
-Vue.component('ValidationProvider', ValidationProvider);
 
 new Vue({
   router: router,
