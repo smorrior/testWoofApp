@@ -2,7 +2,7 @@
     <v-snackbar v-model="snackbar"  :value="true" :multi-line="multiLine" :color="color">
       {{ text }}
       <v-btn color="white" text @click="snackbar = false">
-        Closesssssss
+        Close
       </v-btn>
     </v-snackbar>
 </template>
@@ -11,7 +11,7 @@ export default {
     data: () => ({
       multiLine: true,
       snackbar: true,
-      color: 'primary'
+      color: 'red'
     }),
     props: ['text'],
     methods: {

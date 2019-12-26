@@ -41,8 +41,9 @@
         if (this.userIsAuthenticated) {
           itemsInMenu = [
             { icon: 'mdi-calendar-search', title: 'View Meetups', link: '/'},
-            { icon: 'mdi-calendar-edit', title: 'Organize Meetup', link: '/organize-meetup'},
+            { icon: 'mdi-calendar-edit', title: 'Create Meetup', link: '/organize-meetup'},
             { icon: 'mdi-account-box-outline', title: 'Profile', link: '/profile'},
+            { icon: 'mdi-mdiLogout ', title: 'Sign Out', link: ''},
           ]
         }
         return itemsInMenu

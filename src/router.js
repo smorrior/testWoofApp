@@ -4,7 +4,7 @@ import Meetup from '@/components/MeetUp/Meetup'
 import Profile from '@/components/User/Profile'
 import SignIn from '@/components/User/SignIn'
 import SignUp from '@/components/User/SignUp'
-
+import authGuard from './auth-guard'
 const routes = [
     {
         path:'/',
@@ -23,12 +23,14 @@ const routes = [
     {
         path:'/organize-meetup',
         name:'CreateMeetup',
-        component: CreateMeetup
+        component: CreateMeetup,
+        beforeCreate: authGuard
     },
     {
         path:'/profile',
         name:'Profile',
-        component: Profile
+        component: Profile,
+        beforeCreate: authGuard
     },
     {
         path:'/sign-in',

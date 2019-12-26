@@ -32,5 +32,13 @@ new Vue({
   router: router,
   vuetify,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.dispatch('autoSignIn', user)
+      }
+    })
+    this.$store.dispatch('loadMeetup')
+  }
 }).$mount('#app')
