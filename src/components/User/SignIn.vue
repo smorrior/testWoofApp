@@ -21,6 +21,11 @@
             </v-card>
           </v-col>
         </v-row>
+        <v-row align="center" justify="center" v-if="error">
+          <v-col cols="12" sm="8" md="4">
+            <app-alert @dismissed="onDismissed" :text="error.message"></app-alert>
+          </v-col>
+        </v-row>
       </v-container>
     </v-content>
 </template>
@@ -41,6 +46,9 @@ export default {
   computed: {
     user () {
       return this.$store.getters.user
+    },
+    error () {
+      return this.$store.getters.error
     }
   },
   watch: {
@@ -53,6 +61,9 @@ export default {
   methods: {
     signIn () {
       this.$store.dispatch('signInUser', {email: this.email, password: this.password})
+    },
+    onDismissed () {
+      this.$store.dispatch('clearError')
     }
   }
 }

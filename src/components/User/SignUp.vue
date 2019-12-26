@@ -69,8 +69,6 @@ export default {
       this.$store.dispatch('signUpUser', {email: this.email, password: this.password})
     },
     onDismissed () {
-       // eslint-disable-next-line no-console
-      console.log("dis alert")
       this.$store.dispatch('clearError')
     }
   }

@@ -2,7 +2,13 @@
 <template>
   <v-content>
     <v-container>
-      <v-row>
+      <v-row align="center" justify="center">
+        <v-col cols="12" sm="8" md="4">
+          <v-progress-circular :size="70" :width="7" color="primary" indeterminate v-if="loading"></v-progress-circular>
+        </v-col>
+      </v-row>
+      
+      <v-row v-if="!loading">
         <v-col v-for="(meetup,i) in meetups" :key="i" cols="12" sm="4" >
           <v-card class="mx-auto" max-width="400">
             <v-img class="white--text align-end" height="200px" :src="meetup.thumbnail"></v-img>
@@ -28,6 +34,9 @@ export default {
     computed: {
       meetups() {
         return this.$store.getters.loadedMeetups
+      },
+      loading() {
+        return this.$store.getters.loading
       }
     },
     
