@@ -17,6 +17,10 @@
                   <v-text-field id="includes" name="includes" v-model="includes" label="includes" outlined></v-text-field>
                   <v-textarea id="info" name="info" v-model="info" label="info" outlined></v-textarea>
                   <v-text-field id="thumbnail" name="thumbnail" v-model="thumbnail" label="thumbnail" outlined></v-text-field>
+                  <v-text-field id="image1" name="image1" v-model="image1" label="image1" outlined></v-text-field>
+                  <v-text-field id="image2" name="image2" v-model="image2" label="image2" outlined></v-text-field>
+                  <v-text-field id="image3" name="image3" v-model="image3" label="image3" outlined></v-text-field>
+                  <v-text-field id="image4" name="image4" v-model="image4" label="image4" outlined></v-text-field>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
@@ -40,6 +44,10 @@ export default {
       includes: '',
       info: '',
       thumbnail: '',
+      image1: '',
+      image2: '',
+      image3: '',
+      image4: ''
     }),
     computed: {
       formIsValid () {
@@ -59,7 +67,11 @@ export default {
           price: this.price,
           includes: this.includes,
           info: this.info,
-          thumbnail: this.thumbnail
+          thumbnail: this.thumbnail,
+          image1: this.image1,
+          image2: this.image2,
+          image3: this.image3,
+          image4: this.image4,
         }
         this.$store.dispatch('createMeetup', meetupData)
         this.$router.push('/')
