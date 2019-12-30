@@ -11,6 +11,19 @@ export const store = new Vuex.Store({
     error: null,
     },
     mutations: {
+        registerMeetups (state, payload) {
+            const id = payload.id
+            if (state.user.registerMeetups.findIndex(meetup => meetup.id === id) >= 0) {
+                return
+            }
+            state.user.registerMeetups.push(id)
+            state.user.fbKey[id] = payload.fbKey
+        },
+        unRegisterMeetups (state, payload) {
+            const registeredMeetups = state.user.registerMeetups
+            registeredMeetups.splice(registeredMeetups.findIndex(meetup => meetup.id === payload), 1)
+            Reflect.deleteProperty(state.user.fbKeys, payload)
+        },
         setLoadedMeetups (state, payload) {
             state.loadedMeetups = payload
         },
@@ -31,6 +44,40 @@ export const store = new Vuex.Store({
         }
     },
     actions: {
+        registerUserForMeetup ({commit, getters}, payload) {
+            commit('setLoading', true)
+            const user = getters.user
+            firebase.database().ref('/users/' + user.id).child('registration')
+                .push(payload)
+                .then(data => {
+                    commit('setLoading', false)
+                    commit('reisterUserForMeetup', {id: payload, fbKey: data.key})
+                })
+                .catch(error => {
+                     // eslint-disable-next-line no-console
+                    console.log(error)
+                    commit('setLoading', false)
+                })
+        },
+        unRegisterUserForMeetup ({commit, getters}, payload) {
+            commit('setLoading', true)
+            const user = getters.user
+            if (!user.fbKeys) {
+                return
+            }
+            const fbKey = user.fbKeys[payload]
+            firebase.database.ref('/users/' + user.id + 'registrations').child(fbKey)
+                .remove()
+                .then(() => {
+                    commit('setLoading', false)
+                    commit('unregisterUserFromMeetups', payload)
+                }) 
+                .catch(error => {
+                    // eslint-disable-next-line no-console
+                    console.log(error)
+                    commit('setLoading', false)
+                })
+        },
         loadMeetup ({commit}) {
             commit('setLoading', true)
             firebase.database().ref('meetups').once('value')
