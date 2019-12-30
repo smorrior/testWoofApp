@@ -6,9 +6,12 @@ import firebase from 'firebase';
 import vuetify from './plugins/vuetify';
 import {store} from './store';
 import AlertComponent from './components/Shared/Alert.vue'
+import Register from './components/MeetUp/Register/Register.vue'
 
 Vue.config.productionTip = false
+
 Vue.component('app-alert', AlertComponent)
+Vue.component('app-register', Register)
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDNr2ZU6ZI9OZFitzqetkc8OQ_4xQjcYZI',

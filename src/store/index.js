@@ -48,6 +48,11 @@ export const store = new Vuex.Store({
                         size: obj[key].size,
                         thumbnail: obj[key].thumbnail,
                         title: obj[key].title,
+                        image1:obj[key].image1,
+                        image2:obj[key].image2,
+                        image3:obj[key].image3,
+                        image4:obj[key].image4,
+                        userId:obj[key].userId
                     })
                 }
                 commit('setLoadedMeetups', meetups)
@@ -62,16 +67,21 @@ export const store = new Vuex.Store({
             )
         },
         
-        createMeetup ({commit}, payload){
+        createMeetup ({commit, getters}, payload){
             const meetup = {
                 title: payload.title,
-                location:payload.location,
-                duration:payload.duration,
-                size:payload.size,
-                price:payload.price,
-                includes:payload.includes,
-                info:payload.info,
-                thumbnail:payload.thumbnail,
+                location: payload.location,
+                duration: payload.duration,
+                size: payload.size,
+                price: payload.price,
+                includes: payload.includes,
+                info: payload.info,
+                thumbnail: payload.thumbnail,
+                image1: payload.image1,
+                image2: payload.image2,
+                image3: payload.image3,
+                image4: payload.image4,
+                userId: getters.user.id
             }
             firebase.database().ref('meetups').push(meetup)
             .then((data) => {
@@ -134,6 +144,10 @@ export const store = new Vuex.Store({
         },
         autoSignIn({commit}, payload) {
             commit('setUser', {id: payload.uid, registerMeetups:[]})
+        },
+        logout({commit}) {
+            firebase.auth().signOut()
+            commit('setUser', null)
         },
         clearError ({commit}) {
             commit('clearError')

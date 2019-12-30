@@ -10,7 +10,17 @@
             <v-list-item-title>{{item.title}}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-item v-if="userIsAuthenticated" @click="onLogout">
+          <v-list-item-action>
+            <v-icon>mdi-login-variant</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Sign Out</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
+
     </v-navigation-drawer>
 
     <v-app-bar app clipped-left>
@@ -42,14 +52,18 @@
           itemsInMenu = [
             { icon: 'mdi-calendar-search', title: 'View Meetups', link: '/'},
             { icon: 'mdi-calendar-edit', title: 'Create Meetup', link: '/organize-meetup'},
-            { icon: 'mdi-account-box-outline', title: 'Profile', link: '/profile'},
-            { icon: 'mdi-mdiLogout ', title: 'Sign Out', link: ''},
+            { icon: 'mdi-account-box-outline', title: 'Profile', link: '/profile'}
           ]
         }
         return itemsInMenu
       },
       userIsAuthenticated () {
         return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+      }
+    },
+    methods: {
+      onLogout() {
+        this.$store.dispatch('logout')
       }
     }
   }

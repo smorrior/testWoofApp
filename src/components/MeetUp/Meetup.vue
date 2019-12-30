@@ -2,22 +2,29 @@
     <v-content >
         <v-container fluid>
             <v-row class="ma-5">
-                <v-col v-for="(image,i) in meetup.images" :key="i" md="3" sm="3" cols="3" >
-                   <v-img :src='image.imageUrl' max-height="400px"></v-img>
+                <v-col  md="3" sm="3" cols="3" >
+                   <v-img v-bind:src='meetup.image1' max-height="400px"></v-img>
+               </v-col>
+               <v-col  md="3" sm="3" cols="3" >
+                   <v-img v-bind:src='meetup.image2' max-height="400px"></v-img>
+               </v-col>
+               <v-col  md="3" sm="3" cols="3" >
+                   <v-img v-bind:src='meetup.image3' max-height="400px"></v-img>
+               </v-col>
+               <v-col  md="3" sm="3" cols="3" >
+                   <v-img v-bind:src='meetup.image4' max-height="400px"></v-img>
                </v-col>
             </v-row>
             <v-row class="ma-5">
                 <v-col  md="4" sm="12" cols="12"> 
-                        <v-list-item three-line>
-                            <v-list-item-content>
-                                <v-list-item-title class="display-1 font-weight-bold">{{meetup.title}}</v-list-item-title>
-                                <v-list-item-subtitle>{{meetup.location}}</v-list-item-subtitle>
-                                <v-list-item-subtitle>{{meetup.rating}} <v-icon>mdi-star</v-icon></v-list-item-subtitle>
-                                <v-btn color="primary" dark large class="mt-5">See dates</v-btn>
-                            </v-list-item-content>
-                        </v-list-item>
-                        
-                        
+                    <v-list-item three-line>
+                        <v-list-item-content>
+                            <v-list-item-title class="display-1 font-weight-bold">{{meetup.title}}</v-list-item-title>
+                            <v-list-item-subtitle>{{meetup.location}}</v-list-item-subtitle>
+                            <v-list-item-subtitle>{{meetup.rating}} <v-icon>mdi-star</v-icon></v-list-item-subtitle>
+                            <app-register :meetupId="meetup.id"></app-register>
+                        </v-list-item-content>
+                    </v-list-item>
                 </v-col>
                 <v-col  md="8" sm="12" cols="12" class="text-justify">
                     <v-row >
