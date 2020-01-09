@@ -21,8 +21,7 @@
                         <v-list-item-content>
                             <v-list-item-title class="display-1 font-weight-bold">{{meetup.title}}</v-list-item-title>
                             <v-list-item-subtitle>{{meetup.location}}</v-list-item-subtitle>
-                            <v-list-item-subtitle>{{meetup.rating}} <v-icon>mdi-star</v-icon></v-list-item-subtitle>
-                            <app-register :meetupId="meetup.id"></app-register>
+                            <app-register :meetupId="meetup.id" v-if="userIsAuthenticated && !userIsCreator"></app-register>
                         </v-list-item-content>
                     </v-list-item>
                 </v-col>
@@ -32,16 +31,10 @@
                             <v-list-item three-line>
                                 <v-list-item-content>
                                     <v-list-item-title>
-                                        <v-icon class="black--text headline mr-2">
-                                            mdi-clock
-                                        </v-icon>
+                                        <v-icon class="black--text headline mr-2"> mdi-clock </v-icon>
                                     </v-list-item-title>
-                                    <v-list-item-subtitle class="font-weight-bold">
-                                    Duration:
-                                    </v-list-item-subtitle>
-                                    <v-list-item-subtitle>
-                                    {{meetup.duration}}
-                                    </v-list-item-subtitle>
+                                    <v-list-item-subtitle class="font-weight-bold"> Duration: </v-list-item-subtitle>
+                                    <v-list-item-subtitle> {{meetup.duration}}h </v-list-item-subtitle>
                                 </v-list-item-content>
                             </v-list-item>
                         </v-col>
@@ -49,16 +42,10 @@
                             <v-list-item three-line>
                                 <v-list-item-content>
                                     <v-list-item-title>
-                                        <v-icon class="black--text headline mr-2">
-                                            mdi-account-multiple
-                                        </v-icon>
+                                        <v-icon class="black--text headline mr-2"> mdi-account-multiple </v-icon>
                                     </v-list-item-title>
-                                    <v-list-item-subtitle class="font-weight-bold">
-                                    Group size
-                                    </v-list-item-subtitle>
-                                    <v-list-item-subtitle>
-                                    {{meetup.size}}
-                                    </v-list-item-subtitle>
+                                    <v-list-item-subtitle class="font-weight-bold"> Group size </v-list-item-subtitle>
+                                    <v-list-item-subtitle>Up to {{meetup.size}} people</v-list-item-subtitle>
                                 </v-list-item-content>
                             </v-list-item>
                         </v-col>
@@ -66,16 +53,10 @@
                             <v-list-item three-line>
                                 <v-list-item-content>
                                     <v-list-item-title>
-                                        <v-icon class="black--text headline mr-2">
-                                            mdi-clipboard-list-outline
-                                        </v-icon>
+                                        <v-icon class="black--text headline mr-2"> mdi-clipboard-list-outline </v-icon>
                                     </v-list-item-title>
-                                    <v-list-item-subtitle class="font-weight-bold">
-                                        Includes
-                                    </v-list-item-subtitle>
-                                    <v-list-item-subtitle>
-                                        {{meetup.includes}}
-                                    </v-list-item-subtitle>
+                                    <v-list-item-subtitle class="font-weight-bold"> Includes </v-list-item-subtitle>
+                                    <v-list-item-subtitle> {{meetup.includes}} </v-list-item-subtitle>
                                 </v-list-item-content>
                             </v-list-item>
                         </v-col>
@@ -88,10 +69,10 @@
                                         </v-icon>
                                     </v-list-item-title>
                                     <v-list-item-subtitle class="font-weight-bold">
-                                    Location
+                                        Location
                                     </v-list-item-subtitle>
                                     <v-list-item-subtitle>
-                                    {{meetup.location}}
+                                        {{meetup.location}}
                                     </v-list-item-subtitle>
                                 </v-list-item-content>
                             </v-list-item>
@@ -155,6 +136,18 @@ export default {
     computed: {
         meetup () {
             return this.$store.getters.loadedMeetup(this.id)
+        },
+        userIsAuthenticated () {
+            return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+        },
+        userIsCreator () {
+            if (!this.userIsAuthenticated) {
+                return false
+            }
+            return this.$store.getters.user.id === this.meetup.creatorId
+        },
+        loading () {
+            return this.$store.getters.loading
         }
     }
 }
